@@ -162,6 +162,8 @@
     <string name="label_first_keyserver_is_used">"(First keyserver listed is preferred)"</string>
     <string name="label_preferred">"preferred"</string>
     <string name="label_enable_compression">"Enable compression"</string>
+    <string name="label_passphrase_edit">"Change passphrase"</string>
+    <string name="label_key_edit">"Change keys"</string>
 
     <string name="user_id_no_name">"&lt;no name&gt;"</string>
     <string name="none">"&lt;none&gt;"</string>
