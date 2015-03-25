@@ -45,6 +45,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.PopupMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -350,7 +351,12 @@ public class ViewKeyActivity extends BaseActivity implements
                 return true;
             }
             case R.id.menu_key_view_edit: {
-                editKey(mDataUri);
+                View menuItemView = findViewById(R.id.menu_key_view_edit);
+                PopupMenu popupMenu = new PopupMenu(ViewKeyActivity.this, menuItemView);
+                popupMenu.inflate(R.menu.passphrase_and_subkeys_edit);
+
+                popupMenu.show();
+
                 return true;
             }
             case R.id.menu_key_view_certify_fingerprint: {
@@ -647,6 +653,8 @@ public class ViewKeyActivity extends BaseActivity implements
         editIntent.setData(KeychainContract.KeyRingData.buildSecretKeyRingUri(dataUri));
         startActivityForResult(editIntent, 0);
     }
+
+
 
     private void startSafeSlinger(Uri dataUri) {
         long keyId = 0;
@@ -995,6 +1003,9 @@ public class ViewKeyActivity extends BaseActivity implements
             }
         }
     }
+
+
+
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
